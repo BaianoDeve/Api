@@ -5,14 +5,14 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
     res.status(200).send({
         title: "Usuarios GET",
-        msg: "Usando GET dentro da rota usuarios"
+        msg: "listar todos usuarios"
     });
 });
 
 // RETORNA USUARIO EXPECIFICO
-router.get('/:id_usuario', (req, res, next) => {
+router.get('/:id_usuer', (req, res, next) => {
 
-    const id = req.params.id_usuario
+    const id = req.params.id_usuer
 
     if(id === 'especial') {
         res.status(200).send({
@@ -33,23 +33,31 @@ router.get('/:id_usuario', (req, res, next) => {
 router.post('/', (req, res, next) => {
     res.status(201).send({
         title: "Usuarios POST",
-        msg: "Usando POST dentro da rota usuarios"
+        msg: "Cadastrar usuario"
     });
 });
 
 // ATUALIZA O USUARIO 
-router.patch('/', (req, res, next) => {
+router.patch('/:id_user', (req, res, next) => {
+
+    const id = req.params.id_usuer
+
     res.status(201).send({
-        title: "Produtos PATCH",
-        msg: "Usando PATCH dentro da rota produtos"
+        id: id,
+        title: "Usuarios PATCH",
+        msg: "Atualizar usuario"
     });
 });
 
-// DELETA O PRODUTO
-router.delete('/', (req, res, next) => {
+// DELETA O USUARIO
+router.delete('/:id_user', (req, res, next) => {
+
+    const id = req.params.id_usuer
+
     res.status(201).send({
-        title: "Produtos DELETE",
-        msg: "Usando DELETE dentro da rota produtos"
+        id: id,
+        title: "Usuarios DELETE",
+        msg: "Deletar usuariop"
     });
 });
 

@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
     res.status(200).send({
         title: "Produtos GET",
-        msg: "Usando GET dentro da rota produtos"
+        msg: "Listar todos os produtos"
     });
 });
 
@@ -33,23 +33,31 @@ router.get('/:id_produto', (req, res, next) => {
 router.post('/', (req, res, next) => {
     res.status(201).send({
         title: "Produtos POST",
-        msg: "Usando POST dentro da rota produtos"
+        msg: "Inserir produto"
     });
 });
 
 // ATUALIZA O PRODUTO 
 router.patch('/', (req, res, next) => {
+
+    const id = req.params.id_produto
+
     res.status(201).send({
+        id: id,
         title: "Produtos PATCH",
-        msg: "Usando PATCH dentro da rota produtos"
+        msg: "Utualizar produto"
     });
 });
 
 // DELETA O PRODUTO
-router.delete('/', (req, res, next) => {
+router.delete('/:id_produto', (req, res, next) => {
+
+    const id = req.params.id_produto
+
     res.status(201).send({
+        id: id,
         title: "Produtos DELETE",
-        msg: "Usando DELETE dentro da rota produtos"
+        msg: "Deletar produto"
     });
 });
 
