@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const upload = multer({ dest: 'src/upload/' })
 
 //RETORNA TODOS OS USUARIOS
 router.get('/', (req, res, next) => {
