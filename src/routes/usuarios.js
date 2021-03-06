@@ -31,9 +31,16 @@ router.get('/:id_usuer', (req, res, next) => {
 
 // INSERE O USUARIO
 router.post('/', (req, res, next) => {
+    const user = {
+        nome: req.body.nome,
+        email: req.body.email,
+        senha: req.body.senha
+    };
+
     res.status(201).send({
         title: "Usuarios POST",
-        msg: "Cadastrar usuario"
+        msg: "Cadastrar usuario",
+        usuarioCriado: user
     });
 });
 

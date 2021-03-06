@@ -31,9 +31,15 @@ router.get('/:id_produto', (req, res, next) => {
 
 // INSERE O PRODUTO
 router.post('/', (req, res, next) => {
+    const produto = {
+        nome: req.body.nome,
+        preco: req.body.preco
+    };
+
     res.status(201).send({
         title: "Produtos POST",
-        msg: "Inserir produto"
+        msg: "Inserir produto",
+        produtoCriado: produto
     });
 });
 
